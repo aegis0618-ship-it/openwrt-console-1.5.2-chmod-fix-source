@@ -1,0 +1,7 @@
+{
+  "luci-app-openwrt-console": {
+    "description": "OpenWrt console editor (root login only)",
+    "read": {},
+    "write": {}
+  }
+}

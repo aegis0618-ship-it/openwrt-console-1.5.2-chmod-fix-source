@@ -1,0 +1,10 @@
+#!/bin/sh
+# Interactive menu only; never source the edited script into the login shell.
+script=/etc/openwrt-console/init_system_openwrt_25.12.sh
+if [ ! -t 0 ] || [ ! -t 1 ]; then
+    printf '%s\n' 'OpenWrt console requires an interactive terminal.' >&2
+    exit 1
+fi
+[ -r "$script" ] || { printf '%s\n' "Missing script: $script" >&2; exit 1; }
+/bin/sh -n "$script" || exit 1
+exec /bin/sh "$script"
